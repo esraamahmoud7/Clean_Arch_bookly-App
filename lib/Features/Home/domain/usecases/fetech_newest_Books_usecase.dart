@@ -5,17 +5,16 @@ import '../../../../core/errors/Failure.dart';
 import '../../../../core/usecase/use_case.dart';
 import '../Entities/BookEntity.dart';
 
-class FetchFeaturedBooksUseCase extends UseCase<List<BookEntity>,NoParam>
+class FetchNewestBooksUseCase extends UseCase<List<BookEntity>,NoParam>
 {
   final HomeRepo homeRepo;
 
-  FetchFeaturedBooksUseCase(this.homeRepo);
+  FetchNewestBooksUseCase(this.homeRepo);
   Future<Either<Failure,List<BookEntity>>> call([NoParam? param]) async{
 
-    return await homeRepo.fetchFeaturedBooks();
+    return await homeRepo.fetchNewestBooks();
 
   }
 
 }
-
 
