@@ -1,3 +1,7 @@
+import 'package:clean_arc_bokkly_app/constants.dart';
+import 'package:hive/hive.dart';
+
+import '../../../../core/functions/save_data_source.dart';
 import '../../../../core/utils/APIServices.dart';
 import '../../domain/Entities/BookEntity.dart';
 import '../models/book_model/book_model.dart';
@@ -17,6 +21,8 @@ class HomeRemoteDataSourceImp extends HomeRemoteDataSource
 
     List<BookEntity> books = ExtractBooksList(data);
 
+    SaveData(books,KFeaturedBox);
+
     return books;
   }
 
@@ -26,8 +32,12 @@ class HomeRemoteDataSourceImp extends HomeRemoteDataSource
 
     List<BookEntity> books = ExtractBooksList(data);
 
+    SaveData(books,KNewestBox);
+
     return books;
   }
+
+
 
 
   List<BookEntity> ExtractBooksList(Map<String, dynamic> data) {
