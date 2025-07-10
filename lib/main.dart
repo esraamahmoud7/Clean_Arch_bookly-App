@@ -7,13 +7,12 @@ import 'constants.dart';
 import 'core/utils/AppRouters.dart';
 
 void main() async{
-  runApp(const Bookly());
-
   await Hive.initFlutter();
   Hive.registerAdapter(BookEntityAdapter());
-  
-  await Hive.openBox(KFeaturedBox);
-  await Hive.openBox(KNewestBox);
+
+  await Hive.openBox<BookEntity>(KFeaturedBox);
+  await Hive.openBox<BookEntity>(KNewestBox);
+  runApp(const Bookly());
 
 }
 
