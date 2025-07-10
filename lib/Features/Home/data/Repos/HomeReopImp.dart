@@ -5,6 +5,7 @@ import 'package:clean_arc_bokkly_app/Features/Home/domain/Entities/BookEntity.da
 import 'package:clean_arc_bokkly_app/core/errors/Failure.dart';
 
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 
 import '../../domain/Repos/HomeRepo.dart';
 
@@ -31,8 +32,10 @@ class HomeRepoImp extends HomeRepo
     }
     on Exception catch(e)
     {
-      return left(Failure());
-    }
+      if (e is DioError) {
+        return left(ServerFailure.fromDiorError(e));
+      }
+      return left(ServerFailure(e.toString()));    }
   }
 
   @override
@@ -50,7 +53,10 @@ class HomeRepoImp extends HomeRepo
     }
     on Exception catch(e)
     {
-      return left(Failure());
+      if (e is DioError) {
+        return left(ServerFailure.fromDiorError(e));
+      }
+      return left(ServerFailure(e.toString()));
     }
   }
 
