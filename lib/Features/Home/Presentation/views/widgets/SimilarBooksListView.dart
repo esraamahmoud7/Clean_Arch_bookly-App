@@ -1,3 +1,4 @@
+import 'package:clean_arc_bokkly_app/Features/Home/domain/Entities/BookEntity.dart';
 import 'package:flutter/material.dart';
 
 import 'CustomBookImage.dart';
@@ -16,7 +17,7 @@ class similarBooksListView extends StatelessWidget {
         {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: BookImageItem(),
+            child: BookImageItem(book: BookEntity(bookId: "bookId", image: "image", title: "title", authorName: "authorName", price: 50, rating: 3.5),),
           );
         },
 

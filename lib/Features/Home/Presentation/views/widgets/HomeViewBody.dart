@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-
 import '../../../../../core/utils/styles.dart';
-import 'BestSellerCard.dart';
 import 'BestSellerListView.dart';
-import 'CustomBookImage.dart';
 import 'CustomAppBar.dart';
-import 'BooksListView.dart';
+import 'featured_list_view_bloc_builder.dart';
 
 class HomeBody extends StatelessWidget {
   const HomeBody({super.key});
@@ -22,13 +19,13 @@ class HomeBody extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: customAppBar(),
               ),
-              CardListView(),
+              FeaturedListViewBlocBuilder(),
               SizedBox(height: 50,),
               Align(
                   alignment: Alignment.centerLeft,
                   child: Padding(
                     padding: const EdgeInsets.only(left: 16.0),
-                    child: Text("Best Seller",style: Styles.textStyle18,),
+                    child: Text("Best Seller", style: Styles.textStyle18,),
                   )
               ),
               Padding(
@@ -36,12 +33,13 @@ class HomeBody extends StatelessWidget {
                 child: SizedBox(height: 15,),
               ),
             ],
-          ) ,
+          ),
         ),
         SliverFillRemaining(child: BestSellerListView(),)
       ],
     );
   }
 }
+
 
 

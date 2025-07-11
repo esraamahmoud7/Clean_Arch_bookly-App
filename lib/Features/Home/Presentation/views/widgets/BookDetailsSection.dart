@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
+import '../../../domain/Entities/BookEntity.dart';
 import 'BookRate.dart';
 import 'BooksAction.dart';
 import 'CustomAppBarBookDetails.dart';
@@ -20,7 +21,7 @@ class BookDetailsSection extends StatelessWidget {
         SizedBox(height: 10,),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width *.2),
-          child: const BookImageItem(),
+          child: BookImageItem(book: BookEntity(bookId: '', image: '', title: '', authorName: '', price: 5, rating: 5),),
         ),
         SizedBox(height: 43,),
         Text("The Jungle Book" ,  style:Styles.textStyle30.copyWith(fontWeight: FontWeight.bold)),

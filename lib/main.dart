@@ -7,7 +7,6 @@ import 'package:clean_arc_bokkly_app/Features/Home/domain/usecases/fetech_newest
 import 'package:clean_arc_bokkly_app/core/utils/simpleBlocObserver.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_it/get_it.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
@@ -16,6 +15,7 @@ import 'core/utils/AppRouters.dart';
 import 'core/utils/locator.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   Hive.registerAdapter(BookEntityAdapter());
   setUpServiceLocator();
@@ -39,7 +39,7 @@ class Bookly extends StatelessWidget {
                     FetchFeaturedBooksUseCase(
                         getIt.get<HomeRepoImp>()
                     )
-                )
+                )..fetchFeaturedBooks()
         ),
         BlocProvider(
             create: (context) =>
@@ -47,7 +47,7 @@ class Bookly extends StatelessWidget {
                     FetchNewestBooksUseCase(
                         getIt.get<HomeRepoImp>()
                     )
-                )
+                )..fetchNewestBooks()
         )
       ],
       child: MaterialApp.router(

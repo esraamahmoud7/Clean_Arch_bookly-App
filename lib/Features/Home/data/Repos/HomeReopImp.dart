@@ -28,6 +28,7 @@ class HomeRepoImp extends HomeRepo
         }
       List<BookEntity> books = await homeRemoteDataSource.fetchFeaturedBooks();
 
+
       return right(books);
     }
     on Exception catch(e)

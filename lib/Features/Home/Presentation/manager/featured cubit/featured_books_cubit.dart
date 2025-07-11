@@ -17,7 +17,9 @@ class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
   {
     emit(FeaturedBooksLoading());
 
+
     var result = await featuredBooksUseCase.call();
+
 
     result.fold(
             (failure)=>{
