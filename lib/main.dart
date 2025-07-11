@@ -4,6 +4,7 @@ import 'package:clean_arc_bokkly_app/Features/Home/data/Repos/HomeReopImp.dart';
 import 'package:clean_arc_bokkly_app/Features/Home/domain/Entities/BookEntity.dart';
 import 'package:clean_arc_bokkly_app/Features/Home/domain/usecases/fetch_Featured_Books_usecase.dart';
 import 'package:clean_arc_bokkly_app/Features/Home/domain/usecases/fetech_newest_Books_usecase.dart';
+import 'package:clean_arc_bokkly_app/core/utils/simpleBlocObserver.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -20,8 +21,10 @@ void main() async {
   setUpServiceLocator();
   await Hive.openBox<BookEntity>(KFeaturedBox);
   await Hive.openBox<BookEntity>(KNewestBox);
+  Bloc.observer = SimpleBlocObserver();
   runApp(const Bookly());
 }
+
 class Bookly extends StatelessWidget {
   const Bookly({super.key});
 
