@@ -5,6 +5,7 @@ sealed class FeaturedBooksState {}
 
 final class FeaturedBooksInitial extends FeaturedBooksState {}
 final class FeaturedBooksLoading extends FeaturedBooksState {}
+final class FeaturedBooksPaginationLoading extends FeaturedBooksState {}
 final class FeaturedBooksSuccessful extends FeaturedBooksState {
   final List<BookEntity> books;
   FeaturedBooksSuccessful(this.books);
@@ -12,5 +13,9 @@ final class FeaturedBooksSuccessful extends FeaturedBooksState {
 final class FeaturedBooksFailure extends FeaturedBooksState {
   final String message;
   FeaturedBooksFailure(this.message);
+}
+final class FeaturedBooksPaginationFailure extends FeaturedBooksState {
+  final String message;
+  FeaturedBooksPaginationFailure(this.message);
 }
 

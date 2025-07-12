@@ -20,7 +20,7 @@ class HomeBody extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: customAppBar(),
               ),
-              FeaturedListViewBlocBuilder(),
+              FeaturedListViewBlocConsumer(),
               SizedBox(height: 50,),
               Align(
                   alignment: Alignment.centerLeft,

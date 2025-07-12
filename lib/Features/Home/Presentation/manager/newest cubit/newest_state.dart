@@ -5,6 +5,7 @@ sealed class NewestState {}
 
 final class NewestInitial extends NewestState {}
 final class NewestLoading extends NewestState {}
+final class NewestPaginationLoading extends NewestState {}
 final class NewestSuccessful extends NewestState {
   final List<BookEntity> books;
   NewestSuccessful(this.books);
@@ -13,5 +14,10 @@ final class NewestFailure extends NewestState {
   final String message;
 
   NewestFailure(this.message);
+}
+final class NewestPaginationFailure extends NewestState {
+  final String message;
+
+  NewestPaginationFailure(this.message);
 }
 
