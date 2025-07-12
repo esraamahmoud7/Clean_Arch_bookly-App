@@ -1,3 +1,4 @@
+import 'package:clean_arc_bokkly_app/Features/Home/domain/Entities/BookEntity.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -7,8 +8,10 @@ import 'BookRate.dart';
 
 class BookDataCard extends StatelessWidget {
   const BookDataCard({
-    super.key,
+    super.key, required this.book,
   });
+
+  final BookEntity book;
 
   @override
   Widget build(BuildContext context) {
@@ -18,23 +21,20 @@ class BookDataCard extends StatelessWidget {
         children: [
           SizedBox(
             width: MediaQuery.of(context).size.width*.5,
-              child: Text("The jungle Book",
+              child: Text(book.title,
                 style: Styles.textStyle20.copyWith(fontFamily: kPT,fontSize: 22),
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               )
           ),
           const SizedBox(height: 3,),
-          Opacity(opacity: 0.7,child: Text("Rudyard Kipling",style: Styles.textStyle16.copyWith(fontStyle: FontStyle.italic),)),
+          Opacity(opacity: 0.7,child: Text(book.authorName ?? "No Name",style: Styles.textStyle16.copyWith(fontStyle: FontStyle.italic),)),
           SizedBox(height: 4,),
           Row(
-            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("39\$",style: Styles.textStyle20.copyWith(fontWeight: FontWeight.bold),),
-              Spacer(),
-              // SizedBox(width: 60,),
-              // Icon(Icons.star,color: Colors.yellow,),
-              BookRate(mainAxisAlignment: MainAxisAlignment.end,)
+              Text("${book.price}\$",style: Styles.textStyle20.copyWith(fontWeight: FontWeight.bold),),
+              BookRate(mainAxisAlignment: MainAxisAlignment.end,rate: book.rating.toString(),)
             ],
           )
         ],

@@ -2,8 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:clean_arc_bokkly_app/Features/Home/domain/Entities/BookEntity.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/utils/assets.dart';
-
 class BookImageItem extends StatelessWidget {
   const BookImageItem({super.key, required this.book});
 

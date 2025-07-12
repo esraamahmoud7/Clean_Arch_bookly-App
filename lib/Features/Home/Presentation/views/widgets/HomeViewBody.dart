@@ -3,6 +3,7 @@ import '../../../../../core/utils/styles.dart';
 import 'BestSellerListView.dart';
 import 'CustomAppBar.dart';
 import 'featured_list_view_bloc_builder.dart';
+import 'newestListViewBlocBuilder.dart';
 
 class HomeBody extends StatelessWidget {
   const HomeBody({super.key});
@@ -35,7 +36,7 @@ class HomeBody extends StatelessWidget {
             ],
           ),
         ),
-        SliverFillRemaining(child: BestSellerListView(),)
+        SliverFillRemaining(child: newestListViewBlocBuilder(),)
       ],
     );
   }

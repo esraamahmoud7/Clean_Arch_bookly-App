@@ -2,7 +2,7 @@ import 'package:clean_arc_bokkly_app/Features/Home/domain/Entities/BookEntity.da
 
 abstract class HomeRemoteDataSource
 {
-  Future<List<BookEntity>> fetchFeaturedBooks();
-  Future<List<BookEntity>> fetchNewestBooks();
+  Future<List<BookEntity>> fetchFeaturedBooks({int pageNumber = 0});
+  Future<List<BookEntity>> fetchNewestBooks({int pageNumber = 0});
 
 }

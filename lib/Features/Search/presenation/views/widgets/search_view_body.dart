@@ -34,7 +34,7 @@ class SearchViewBody extends StatelessWidget {
             ),
             SizedBox(height: 20,),
             Expanded(
-              child: BestSellerListView(),
+              child: BestSellerListView(books: [],),
             )
 
           ],

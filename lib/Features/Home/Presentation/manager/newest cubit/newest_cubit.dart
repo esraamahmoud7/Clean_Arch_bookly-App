@@ -11,10 +11,10 @@ class NewestCubit extends Cubit<NewestState> {
   final FetchNewestBooksUseCase fetchNewestBooksUseCase;
   NewestCubit(this.fetchNewestBooksUseCase) : super(NewestInitial());
 
-  Future<void> fetchNewestBooks()async
+  Future<void> fetchNewestBooks({int pageNumber = 0})async
   {
     emit(NewestLoading());
-    var result = await fetchNewestBooksUseCase.call();
+    var result = await fetchNewestBooksUseCase.call(pageNumber);
 
     result.fold(
             (failure)=>{
